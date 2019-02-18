@@ -1,10 +1,6 @@
-# _Roll The Dice_
+# _Restaurant Roulette_
 
 #### By _**Tanvi Garg, Sheila Stephen, Victoria Martinez, Tavish OKeefe, Ryan Leslie, **_
-
-## Description
-
-_Dice description._
 
 ## Specifications
 * _**Create database to store information, and test database to test information.**_
@@ -38,26 +34,71 @@ _Dice description._
 * _**Write test for Get Method, and see that it returns an empty array if no User is associated with a particular Restaurant Id.**_
 * _**Write test for Get Method, and see that it returns User object list associated with Restaurant, based on the Id of Restaurant, and the id_User of User.**_
 
-
-
 ## _Setup/Installation Requirements_
+
+* _Production database: RestaurantRoulette_
+* _Test Database: RestaurantRoulette_Tests_
+* _Tables in Database :Favorites, restaurant_data, users, users_favorites_
+* _CREATE DATABASE RestaurantRoulette;_
+* _USE RestaurantRoulette_
+* _SELECT DATABASE();_
+* _CREATE TABLE `users_favorites` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `restaurant_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;_
+* _CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `distance` int(11) NOT NULL DEFAULT '0',
+  `price` int(11) NOT NULL DEFAULT '0',
+  `bio` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;_
+* _CREATE TABLE `restaurant_data` (
+  `id` int(11) NOT NULL,
+  `restaurant_name` varchar(39) DEFAULT NULL,
+  `restaurant_location_address` varchar(46) DEFAULT NULL,
+  `restaurant_location_latitude` float DEFAULT NULL,
+  `restaurant_location_longitude` float DEFAULT NULL,
+  `restaurant_average_cost_for_two` int(11) DEFAULT NULL,
+  `restaurant_page_url` varchar(159) DEFAULT NULL,
+  `restaurant_menu_url` varchar(189) DEFAULT NULL,
+  `restaurant_featured_image` varchar(96) DEFAULT NULL,
+  `restaurant_photos_url` varchar(159) DEFAULT NULL,
+  `restaurant_cuisines` varchar(34) DEFAULT NULL,
+  `restaurant_currency` varchar(1) DEFAULT NULL,
+  `restaurant_location_zipcode` int(11) DEFAULT NULL,
+  `restaurant_thumb` varchar(146) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;_
+* _CREATE TABLE `favorites` (
+  `fav_res_id` int(11) NOT NULL,
+  `fav_res_name` varchar(39) NOT NULL,
+  `fav_address` varchar(46) NOT NULL,
+  `fav_lat` float NOT NULL,
+  `fav_long` float NOT NULL,
+  `fav_cost_for_2` int(11) NOT NULL,
+  `fav_cuisine` varchar(32) NOT NULL,
+  `fav_menu_url` varchar(159) NOT NULL,
+  `fav_page_url` varchar(189) NOT NULL,
+  `fav_images` blob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;_
 
 * _Clone repository to your desktop_
 * _Open in Atom, or text and source code editor of your choosing._
-* _CREATE Database Dice._
-* _CREATE TABLE `Dice`.`User` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `distance` INT NOT NULL , `price` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;_
-* _CREATE TABLE `Dice`.`Restaurants` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(255) NOT NULL , `longitude` INT NOT NULL , `latitude` INT NOT NULL , `menu` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;_
-* _CREATE TABLE `Dice`.`User_Restaurants` ( `id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `restaurant_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;_
 
 
+* _Run dotnet restore from Main Project Folder to install packages_
+* _Run dotnet build from Main Project Folder and make sure no build errors appear. Run dotnet restore after build is complete._
+* _Run dotnet restore to compile tests and then dotnet test from the Test Directory to run the testing suite. All tests should pass._
+* _Run dotnet run from Main Project Folder to start the server_
+* _Wait till you see this message display in you bash terminal - "Now listening on: http://localhost:xxxx"_
+* _Copy the local host link http://localhost:xxx and paste it into your web browser address bar._
+* _Browse through the project._
 
 ## Known Bugs
 
 _There are no known bugs at this time._
-
-## Support and contact details
-
-_Tavish OKeefe: okeefe.tavish@gmail.com_
 
 ## Technologies Used
 
@@ -67,7 +108,7 @@ _Tavish OKeefe: okeefe.tavish@gmail.com_
 
 ### License
 
-Copyright (c) 2018, _Tavish O'Keefe_  
+Copyright (c) 2018, _Sheila Stephen_  
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
