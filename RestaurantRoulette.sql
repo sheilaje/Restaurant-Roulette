@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 18, 2018 at 04:24 PM
--- Server version: 5.6.38
--- PHP Version: 7.2.1
+-- Generation Time: Mar 14, 2019 at 10:03 PM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -38,8 +38,16 @@ CREATE TABLE `favorites` (
   `fav_cuisine` varchar(255) NOT NULL,
   `fav_menu_url` varchar(255) NOT NULL,
   `fav_page_url` varchar(255) NOT NULL,
-  `fav_images` blob NOT NULL
+  `fav_images` blob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`id`, `fav_res_name`, `fav_address`, `fav_lat`, `fav_long`, `fav_cost_for_2`, `fav_cuisine`, `fav_menu_url`, `fav_page_url`, `fav_images`) VALUES
+(1, 'Portland City Grill', '111 SW 5th Avenue 97204', 45.5222015380859, -122.676002502441, 70, 'Asian, Seafood, Steak', 'https://www.zomato.com/portland/portland-city-grill-downtown/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop', 'https://www.zomato.com/portland/portland-city-grill-downtown/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1', NULL),
+(2, 'Henry\'s 12th Street Tavern', '10 NW 12th Avenue 97209', 45.5228996276855, -122.682998657227, 65, 'American', 'https://www.zomato.com/portland/henrys-12th-street-tavern-pearl-district/menu?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1&openSwipeBox=menu&showMinimal=1#tabtop', 'https://www.zomato.com/portland/henrys-12th-street-tavern-pearl-district/events#tabtop?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,6 +113,13 @@ CREATE TABLE `users` (
   `bio` varchar(255) DEFAULT '""'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`, `distance`, `price`, `bio`) VALUES
+(10, 'sheila', 'sheila', 1, 70, 'Hello !!');
+
 -- --------------------------------------------------------
 
 --
@@ -116,6 +131,14 @@ CREATE TABLE `users_favorites` (
   `user_id` int(11) NOT NULL,
   `restaurant_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_favorites`
+--
+
+INSERT INTO `users_favorites` (`id`, `user_id`, `restaurant_id`) VALUES
+(1, 10, 1),
+(2, 10, 2);
 
 --
 -- Indexes for dumped tables
@@ -153,7 +176,7 @@ ALTER TABLE `users_favorites`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restaurant_data`
@@ -165,13 +188,13 @@ ALTER TABLE `restaurant_data`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users_favorites`
 --
 ALTER TABLE `users_favorites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
